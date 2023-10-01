@@ -22,17 +22,6 @@ public class D07_followUs {
     home.facebookLink().click();
     }
 
-
-    @Then("{string} is opened in new tab")
-    public void isOpenedInNewTab(String link) {
-        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
-        list = new ArrayList<String>(driver.getWindowHandles());
-    driver.switchTo().window(list.get(1));
-
-    home.currentUrl();
-    Assert.assertEquals(home.currentUrl(),link);
-    }
-
     @Given("user opens twitter link")
     public void userOpensTwitterLink() {
         home.twitterLink().click();
@@ -46,5 +35,14 @@ public class D07_followUs {
     @Given("user opens youtube link")
     public void userOpensYoutubeLink() {
         home.youtubeLink().click();
+    }
+    @Then("{string} is opened in new tab")
+    public void isOpenedInNewTab(String link) {
+        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+        list = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(list.get(1));
+
+        home.currentUrl();
+        Assert.assertEquals(home.currentUrl(),link);
     }
 }

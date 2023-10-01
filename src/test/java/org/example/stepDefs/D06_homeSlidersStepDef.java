@@ -18,7 +18,9 @@ public class D06_homeSlidersStepDef {
     public void clickOnSlider(String slide){
         if (slide.equals("0")){
             home.sliders().get(0).click();
+            wait.until(ExpectedConditions.visibilityOf(home.sliders().get(0)));
         } else if (slide.equals("1")) {
+            wait.until(ExpectedConditions.visibilityOf(home.sliders().get(1)));
             home.sliders().get(1).click();
         }
 
