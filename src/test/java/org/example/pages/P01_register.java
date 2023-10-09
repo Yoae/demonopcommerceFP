@@ -10,9 +10,9 @@ public class P01_register {
     public WebElement gendertype(){return driver.findElement(By.id("gender-male"));}
     public WebElement firstname(){return driver.findElement(By.id("FirstName"));}
     public WebElement lastName(){return driver.findElement(By.id("LastName"));}
-    public WebElement dayOfBirth(){return driver.findElement(By.xpath("//option[text()=\"9\"]"));}
-    public WebElement monthOfBirth(){return driver.findElement(By.xpath("//option[text()=\"March\"]"));}
-    public WebElement yearOfBirth(){return driver.findElement(By.xpath("//option[text()=\"1932\"]"));}
+    public WebElement dayOfBirth(){return driver.findElement(By.cssSelector("select[name=\"DateOfBirthDay\"]"));}
+    public WebElement monthOfBirth(){return driver.findElement(By.cssSelector("select[name=\"DateOfBirthMonth\"]"));}
+    public WebElement yearOfBirth(){return driver.findElement(By.cssSelector("select[name=\"DateOfBirthYear\"]"));}
     public WebElement email(){return driver.findElement(By.id("Email"));}
     public WebElement password(){return driver.findElement(By.id("Password"));}
     public WebElement confirmPassword(){return driver.findElement(By.id("ConfirmPassword"));}

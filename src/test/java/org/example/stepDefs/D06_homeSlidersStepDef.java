@@ -13,14 +13,12 @@ import java.time.Duration;
 
 public class D06_homeSlidersStepDef {
     P03_homePage home = new P03_homePage();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     @Given("user clicks on slider {string}")
     public void clickOnSlider(String slide){
         if (slide.equals("0")){
             home.sliders().get(0).click();
-            wait.until(ExpectedConditions.visibilityOf(home.sliders().get(0)));
         } else if (slide.equals("1")) {
-            wait.until(ExpectedConditions.visibilityOf(home.sliders().get(1)));
             home.sliders().get(1).click();
         }
 

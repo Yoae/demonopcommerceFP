@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 
 import org.example.pages.P01_register;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 
 
@@ -33,11 +34,14 @@ public class D01_registerStepDef {
     }
 
     @And("user enters birth of date")
-    public void userEntersBirthOfDate()  {
-        register.dayOfBirth().click();
-        register.monthOfBirth().click();
-        register.yearOfBirth().click();
-
+    public void userEntersBirthOfDate() throws InterruptedException {
+        Select dayOfBirth = new Select(register.dayOfBirth());
+        Select monthOfBirth = new Select(register.monthOfBirth());
+        Select yearOfBirth = new Select(register.yearOfBirth());
+        dayOfBirth.selectByIndex(17);
+        monthOfBirth.selectByIndex(1);
+        yearOfBirth.selectByValue("2002");
+        Thread.sleep(3000);
     }
 
     @And("user enters email {string} field")
